@@ -23,6 +23,7 @@ namespace elumini.worker
                 })
                 .Build();
 
+            Thread.Sleep(3000);
             host.Run();
         }
     }

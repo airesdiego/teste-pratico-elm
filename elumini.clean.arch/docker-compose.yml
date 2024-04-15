@@ -21,7 +21,9 @@ services:
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Developer"
     ports:
-      - "5434:1433"    
+      - "5434:1433"
+    networks:
+      - mynet
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -32,4 +34,10 @@ services:
       - 15672:15672
     environment:
       - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest     
+      - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
